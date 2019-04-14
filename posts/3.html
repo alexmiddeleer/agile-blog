@@ -1,0 +1,32 @@
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/blog.css">
+  </head>
+  <body>
+    <h1>Agile Blog</h1>
+    <article>
+      <h2>
+        Creating some posts
+      </h2>
+  
+      <p>The next step was to write some posts. I started with bare html. I knew this was likely to reveal some major inefficiencies, but that is part of the lean process as I understand it.</p>
+
+      <p>I haven't even added links to these posts yet, but they're available at /posts/X.html (X = 1, 2, or 3)</p>
+
+      
+      <h2>Retrospective</h2>
+
+      <p>The only "problem" I ran into was the project structure. I knew I wanted the URL to be of the form /posts/title.html, but this would require a posts directory in the root directory. Either that, or using a feature of Github pages that I am not aware of. Since I didn't want to do a big build buildout yet or invest much time learning GitHub pages features, I decided to merge the src directory into the root directory. When the project structure gets too messy I'll restructure.</p>
+
+      <p>Converting Google Docs pages to html was a pain (and dangerous, since it's easy to forget to recreate links), so I'll try writing post drafts in plain html directly.</p>
+
+      <p>Copying the page templates across files was not DRY or efficient, so as soon as I finish this blog's mvp, I will probably add some features like templating or markdown rendering</p>
+
+      <p>Starting a new project is hard. The amount of time I invested in reading about e2e testing tools was probably excessive. I was unhappy that I had to manually rerun test cafe with ctrl-r, but I'm not sure it was worth reading about cypress and jsdom for a couple of hours to fix this (at least in the short term). Should be more disciplined about not doing ad-hoc spikes. Instead, I'll list the things I want to improve or research and do proper spikes in order of priority. <a href="https://xkcd.com/1205/">This XKCD on time saved automating a task comes to mind</a>. Perhaps it would have been worthwhile if I was planning to work on this blog for several years.
+      </p>
+
+      <p>It was interesting that I already had to change the project structure. I assumed picking github pages would be essentially free, but it wasn't. I could go read the docs on github pages about how to make the home page not live in the root directory, but I am not sure that becoming a GP expert is something I'd like to do. Perhaps deploying to Amazon S3 would have been a better idea. Adding that as a possible spike.</p>
+    </article>
+  </body>
+</html>
+
