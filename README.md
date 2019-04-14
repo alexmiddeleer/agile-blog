@@ -1,5 +1,7 @@
 #Agile Blog
 
+View live site at https://alexmiddeleer.github.io/agile-blog/
+
 ## Global Tools Needed
 1. testcafe
 2. http-server
