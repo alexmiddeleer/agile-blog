@@ -10,6 +10,12 @@ test('Title exists', async t => {
     .expect(Selector('h1').innerText).eql('Agile Blog');
 });
 
+test('Links to posts exit', async t => {
+  await t
+  // Use the assertion to check if the actual header text is equal to the expected one
+    .expect(Selector('nav').innerText).ok('nav exists with content');
+});
+
 fixture `First post`// declare the fixture
   .page `http://localhost:3000/posts/1.html`;
 
