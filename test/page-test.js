@@ -2,10 +2,9 @@ import { Selector } from 'testcafe'; // first import testcafe selectors
 import { ClientFunction } from 'testcafe';
 import posts from '../posts-meta.js';
 
-//Returns the URL of the current web page
 const getPageUrl = ClientFunction(() => window.location.href);
 
-fixture `Home page`
+fixture `e2e tests`
   .page `http://localhost:3000`;
 
 test('Title exists', async t => {
@@ -20,9 +19,10 @@ for (let i = 1; i <= posts.length; i++) {
       .expect(getPageUrl()).contains(`${i}.html`, `${i}th link works`);
   });
 
-  test(`${i}th post exists`, async t => {
+  test(`${i}th post basic checks`, async t => {
     await t.navigateTo(`http://localhost:3000/posts/${i}.html`)
       .expect(Selector('h1').innerText).eql('Agile Blog', 'title exists')
-      .expect(Selector('article').innerText).ok('Article exists');
+      .expect(Selector('article').innerText).ok('Article exists')
+      .expect(Selector('.publishDate').innerText).eql(posts[i-1].date, 'publish date is correct');
   });
 }
