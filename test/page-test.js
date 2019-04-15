@@ -1,10 +1,11 @@
 import { Selector } from 'testcafe'; // first import testcafe selectors
 import { ClientFunction } from 'testcafe';
+import posts from '../posts-meta.js';
 
 //Returns the URL of the current web page
 const getPageUrl = ClientFunction(() => window.location.href);
 
-fixture `Home page`// declare the fixture
+fixture `Home page`
   .page `http://localhost:3000`;
 
 test('Title exists', async t => {
@@ -12,44 +13,16 @@ test('Title exists', async t => {
     .expect(Selector('h1').innerText).eql('Agile Blog');
 });
 
-test('Links to posts work', async t => {
-  await t
-    // .expect(Selector('nav').innerText).ok('nav exists with content');
-    .click('nav a')
-    .expect(getPageUrl()).contains('1.html');
-});
+for (let i = 1; i <= posts.length; i++) {
+  test('Links to posts work', async t => {
+    await t
+      .click(`nav li:nth-child(${i}) a`)
+      .expect(getPageUrl()).contains(`${i}.html`, `${i}th link works`);
+  });
 
-fixture `First post`// declare the fixture
-  .page `http://localhost:3000/posts/1.html`;
-
-test('First post exists', async t => {
-  await t
-    .expect(Selector('h1').innerText).eql('Agile Blog', 'title exists')
-    .expect(Selector('article').innerText).ok('article exists');
-});
-
-fixture `Second post`// declare the fixture
-  .page `http://localhost:3000/posts/2.html`;
-
-test('second post exists', async t => {
-  await t
-    .expect(Selector('h1').innerText).eql('Agile Blog', 'title exists')
-    .expect(Selector('article').innerText).ok('article exists');
-});
-
-fixture `Third post`// declare the fixture
-  .page `http://localhost:3000/posts/3.html`;
-
-test('third post exists', async t => {
-  await t
-    .expect(Selector('h1').innerText).eql('Agile Blog', 'title exists')
-    .expect(Selector('article').innerText).ok('article exists');
-});
-
-fixture `fourth post`
-  .page `http://localhost:3000/posts/4.html`;
-
-test('fourth post exists', async t => {
-  await t
-    .expect(Selector('h1').innerText).eql('Agile Blog', 'title exists')
-});
+  test(`${i}th post exists`, async t => {
+    await t.navigateTo(`http://localhost:3000/posts/${i}.html`)
+      .expect(Selector('h1').innerText).eql('Agile Blog', 'title exists')
+      .expect(Selector('article').innerText).ok('Article exists');
+  });
+}
