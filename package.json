@@ -1,0 +1,26 @@
+{
+  "name": "agile-blog",
+  "version": "1.0.0",
+  "description": "A blog about agile",
+  "main": "posts-meta.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexmiddeleer/agile-blog.git"
+  },
+  "author": "Alex Middeleer",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/alexmiddeleer/agile-blog/issues"
+  },
+  "homepage": "https://github.com/alexmiddeleer/agile-blog#readme",
+  "devDependencies": {
+    "jest": "^24.7.1"
+  }
+}
