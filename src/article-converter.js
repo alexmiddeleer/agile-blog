@@ -4,4 +4,4 @@ function convert(articleString) {
   return marked(articleString).trim();
 }
 
-module.exports = convert
+module.exports = convert;
