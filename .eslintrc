@@ -1,0 +1,6 @@
+{
+    "parserOptions": {
+        "sourceType": "node",
+        "ecmaVersion": 2018
+    }
+}
