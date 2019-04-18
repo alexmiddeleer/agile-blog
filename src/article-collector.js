@@ -1,7 +1,14 @@
 const { readdirSync, readFileSync } = require('fs');
 
-const collect = function(dir) {
+const collectArticles = function(dir) {
   return readdirSync(dir);
 }
 
-module.exports = collect;
+const loadArticleFilePath = function(articleFilePath) {
+  return readFileSync(articleFilePath);
+}
+
+module.exports = {
+  collectArticles,
+  loadArticleFilePath
+};
