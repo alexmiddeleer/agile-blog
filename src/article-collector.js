@@ -22,21 +22,25 @@ const processArticle = function(articleString, articleTemplateString) {
 }
 
 const ARTICLES_DIR = 'articleDrafts';
+const TARGET_DIR = 'posts';
 const TEMPLATE = 'templates/article-template.html';
 const templateAllArticles = function() {
   const articles = collectArticles(ARTICLES_DIR);
   const template = loadTemplate(TEMPLATE);
   // const articlesHtml = [];
   for( let index in articles ){
-    const a = loadArticle(articles[index]);
+    const article = loadArticle(articles[index]);
+    const articleHtml = processArticle(article, template);
+    const articleName = articles[index].match(/^(.*).md$/i)[1];
+    storeArticleHtmlFile(`posts/${articleName}.html`, articleHtml);
   }
 }
 
 module.exports = {
   collectArticles,
-  loadArticle,
-  storeArticleHtmlFile,
-  processArticle,
   loadTemplate,
+  loadArticle,
+  processArticle,
+  storeArticleHtmlFile,
   templateAllArticles
 };

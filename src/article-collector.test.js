@@ -40,11 +40,24 @@ test(`templateAllArticles loads all articles and the article template, processes
       and stores the templated html files in the
       desired folder` , function() {
   fs.readdirSync.mockReturnValue(['foo.md']);
-  fs.readFileSync.mockReturnValueOnce('foo');
-  // fs.readFileSync.mockReturnValueOnce('a{{{article}}}a');
+  fs.readFileSync.mockReturnValueOnce('x{{{article}}}x');
+  fs.readFileSync.mockReturnValueOnce('article');
   templateAllArticles();
   expect(fs.readdirSync.mock.calls[0][0]).toEqual('articleDrafts');
   expect(fs.readFileSync.mock.calls[0][0]).toEqual('templates/article-template.html');
   expect(fs.readFileSync.mock.calls[1][0]).toEqual('foo.md');
-  // expect(fs.readFileSync.mock.calls[0][0]).toEqual('a{{{article}}}a');
+  expect(fs.writeFileSync.mock.calls[0][0]).toEqual('posts/foo.html');
+  expect(fs.writeFileSync.mock.calls[0][1]).toEqual('x<p>article</p>x');
+});
+
+test(`templateAllArticles handles multiple articles` , function() {
+  fs.readdirSync.mockReturnValue(['foo.md', 'bar.md']);
+  fs.readFileSync.mockReturnValueOnce('x{{{article}}}x');
+  fs.readFileSync.mockReturnValueOnce('foofoo');
+  fs.readFileSync.mockReturnValueOnce('barbar');
+  templateAllArticles();
+  expect(fs.writeFileSync.mock.calls[0][0]).toEqual('posts/foo.html');
+  expect(fs.writeFileSync.mock.calls[0][1]).toEqual('x<p>foofoo</p>x');
+  expect(fs.writeFileSync.mock.calls[1][0]).toEqual('posts/bar.html');
+  expect(fs.writeFileSync.mock.calls[1][1]).toEqual('x<p>barbar</p>x');
 });
