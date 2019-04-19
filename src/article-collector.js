@@ -21,18 +21,15 @@ const processArticle = function(articleString, articleTemplateString) {
   return articlePageMaker(articleTemplateString, templateInput);
 }
 
-const ARTICLES_DIR = 'articleDrafts';
-const TARGET_DIR = 'posts';
-const TEMPLATE = 'templates/article-template.html';
-const templateAllArticles = function() {
-  const articles = collectArticles(ARTICLES_DIR);
-  const template = loadTemplate(TEMPLATE);
+const templateAllArticles = function(articlesPath, templatePath, targetPath) {
+  const articles = collectArticles(articlesPath);
+  const template = loadTemplate(templatePath);
   // const articlesHtml = [];
   for( let index in articles ){
-    const article = loadArticle(articles[index]);
-    const articleHtml = processArticle(article, template);
+    const article = loadArticle(`${articlesPath}/${articles[index]}`);
+    const articleHtml = processArticle(article.toString(), template.toString());
     const articleName = articles[index].match(/^(.*).md$/i)[1];
-    storeArticleHtmlFile(`posts/${articleName}.html`, articleHtml);
+    storeArticleHtmlFile(`${targetPath}/${articleName}.html`, articleHtml);
   }
 }
 
