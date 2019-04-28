@@ -1,4 +1,4 @@
-#Agile Blog
+# Agile Blog
 
 View live site at https://alexmiddeleer.github.io/agile-blog/
 
@@ -8,9 +8,11 @@ View live site at https://alexmiddeleer.github.io/agile-blog/
 
 ## Running the tests
 
-1. `cd <projdir>/src && http-server ./ -p 3000`
-2. In a separate shell, run `run-e2e-tests.sh`. Add argument `--live` to use TestCafe live mode
+1. For end to end,`http-server ./ -p 3000`. In a separate shell, run `run-e2e-tests.sh`. Add argument `--live` to use TestCafe live mode
+3. Run `npm test` or `npm test -- --watch` to run unit tests
 
 ## Deploying
 
-Right now the site is deployed to github pages, so just merge code to master
+Right now the site is deployed to github pages, so just merge code to master and push
+
+To Convert articles to markdown, run `node publish-articles.js`.
