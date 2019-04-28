@@ -7,7 +7,7 @@ const collectArticles = function(dir) {
 }
 
 const loadArticle = function(articleFilePath) {
-  return readFileSync(articleFilePath);
+  return readFileSync(articleFilePath).toString();
 }
 
 const loadTemplate = loadArticle;
@@ -24,10 +24,9 @@ const processArticle = function(articleString, articleTemplateString) {
 const templateAllArticles = function(articlesPath, templatePath, targetPath) {
   const articles = collectArticles(articlesPath);
   const template = loadTemplate(templatePath);
-  // const articlesHtml = [];
   for( let index in articles ){
     const article = loadArticle(`${articlesPath}/${articles[index]}`);
-    const articleHtml = processArticle(article.toString(), template.toString());
+    const articleHtml = processArticle(article, template);
     const articleName = articles[index].match(/^(.*).md$/i)[1];
     storeArticleHtmlFile(`${targetPath}/${articleName}.html`, articleHtml);
   }
