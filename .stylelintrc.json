@@ -1,0 +1,10 @@
+{
+  "plugins": ["/Users/alex/.npm-global/lib/node_modules/stylelint-prettier"],
+  "extends": [
+    "/Users/alex/.npm-global/lib/node_modules/stylelint-config-recommended",
+    "/Users/alex/.npm-global/lib/node_modules/stylelint-config-prettier"
+  ],
+  "rules": {
+    "prettier/prettier": true
+  }
+}
