@@ -1,46 +1,23 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="../blog.css">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../blog.css" />
+    <title>Agile Blog</title>
   </head>
   <body>
     <h1>Agile Blog</h1>
-    <div class="publishDate">April 2019</div>
     <article>
-      <h2>
-        Step two: Test something, build it, and ship
-      </h2>
-  
-      <p>
-        Time for a page title.
-      </p>
-      
-      <p>
-        Since this first feature is just some static html, I decided to write a test that opens the browser, loads the page, and verifies the html is what we expect. This is usually called an end-to-end test, and is hard to do without a tool. I decided to try TestCafe on the recommendation of <a href="https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2018-f68950900bc3">this post</a>. TestCafe setup worked smoothly once I decided to stop using a different blog’s setup guide and instead follow TestCafe’s readme. Right now the test will only run locally, and requires two steps to get going (one to start the http server, and the other to start TestCafe). We can fix this later. Here is <a href="https://github.com/alexmiddeleer/agile-blog/commit/3adee0411a887dae29a1fed8d16f695a358dde36">the commit</a>.
-      </p>
-      
-      <p>
-        Since this site is likely to be static for a while (or forever), I decided to just use Github Pages to run the site in production. It makes deploys as easy as pushing to master, and it’s so lightweight that we can easily switch to something else later. Here is <a href="https://github.com/alexmiddeleer/agile-blog/commit/484006a8062a726f79934f92db32e06424966338">the commit</a> to create a deploy script.
-      </p>
-      
-      <h2>
-        Retrospective
-      </h2>
-      <p>
-        I noted during this first phase that I need to set up linting. To keep this simple I will use prettier to automatically format my js, so I don’t need to think about it. I will investigate the current state-of-the-art for html files as well. Setting up linting at this stage could be premature from an extreme programming standpoint (or overkill for a small project), but it’s a quality of life improvement, and an excuse to try prettier.
-      </p>
-      
-      <p>
-        End-to-end testing was easier to set up than expected, kudos to the TestCafe team for building such a slick experience with helpful error messages. However, it also feel much heavier duty than we need. It also doesn’t seem to support tdd very well, since there doesn’t appear to be an out-of-the-box method of rerunning tests when any source file changes. For these reasons, I think I will do a spike to investigate jsdom next with the objective of solving both of those problems.
-      </p>
-      
-      <p>
-        Deploying to github pages with a bash script was easy, but a large apps have many build and deploy requirements, and we’ll probably outgrow this method at some point. 
-      </p>
-      
-      <p>
-        I’ve been forgetting to take disciplined breaks, another thing we learned from Tim Ottinger. It’s similar to the pomodoro method (or perhaps just a variation). Going to try to break for 10 minutes every 50 minutes and see if I am more productive.
-      </p>
+      <div class="publishDate">April 2019</div>
+
+<p>Time for a page title.</p>
+<p>Since this first feature is just some static html, I decided to write a test that opens the browser, loads the page, and verifies the html is what we expect. This is usually called an end-to-end test, and is hard to do without a tool. I decided to try TestCafe on the recommendation of <a href="https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2018-f68950900bc3">this post</a>. TestCafe setup worked smoothly once I decided to stop using a different blog’s setup guide and instead follow TestCafe’s readme. Right now the test will only run locally, and requires two steps to get going (one to start the http server, and the other to start TestCafe). We can fix this later. Here is <a href="https://github.com/alexmiddeleer/agile-blog/commit/3adee0411a887dae29a1fed8d16f695a358dde36">the commit</a>.</p>
+<p>Since this site is likely to be static for a while (or forever), I decided to just use Github Pages to run the site in production. It makes deploys as easy as pushing to master, and it’s so lightweight that we can easily switch to something else later. Here is <a href="https://github.com/alexmiddeleer/agile-blog/commit/484006a8062a726f79934f92db32e06424966338">the commit</a> to create a deploy script.</p>
+<h2 id="retrospective">Retrospective</h2>
+<p>I noted during this first phase that I need to set up linting. To keep this simple I will use prettier to automatically format my js, so I don’t need to think about it. I will investigate the current state-of-the-art for html files as well. Setting up linting at this stage could be premature from an extreme programming standpoint (or overkill for a small project), but it’s a quality of life improvement, and an excuse to try prettier.</p>
+<p>End-to-end testing was easier to set up than expected, kudos to the TestCafe team for building such a slick experience with helpful error messages. However, it also feel much heavier duty than we need. It also doesn’t seem to support tdd very well, since there doesn’t appear to be an out-of-the-box method of rerunning tests when any source file changes. For these reasons, I think I will do a spike to investigate jsdom next with the objective of solving both of those problems.</p>
+<p>Deploying to github pages with a bash script was easy, but a large apps have many build and deploy requirements, and we’ll probably outgrow this method at some point.</p>
+<p>I’ve been forgetting to take disciplined breaks, another thing we learned from Tim Ottinger. It’s similar to the pomodoro method (or perhaps just a variation). Going to try to break for 10 minutes every 50 minutes and see if I am more productive.</p>
     </article>
   </body>
 </html>
-
