@@ -9,3 +9,11 @@ body {
 p {
   margin-top: 20px;
 }
+
+.left {
+  float: left;
+}
+
+.sidebar {
+  max-width: 200px;
+}

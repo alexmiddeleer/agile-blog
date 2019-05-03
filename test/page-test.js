@@ -26,6 +26,8 @@ for (let i = 1; i <= posts.length; i++) {
       .expect(Selector("article").innerText)
       .ok("Article exists")
       .expect(Selector(".publishDate").innerText)
-      .eql(posts[i - 1].date, "publish date is correct");
+      .eql(posts[i - 1].date, "publish date is correct")
+      .expect(Selector(".sidebar").exists)
+      .ok("sidebar exists");
   });
 }

@@ -16,9 +16,15 @@ const storeArticleHtmlFile = function(filePath, htmlString) {
   return writeFileSync(filePath, htmlString);
 };
 
-const processArticle = function(articleString, articleTemplateString) {
-  const templateInput = { article: convert(articleString) };
-  return articlePageMaker(articleTemplateString, templateInput);
+const processArticle = function(articleString, template, metaData) {
+  const templateParams = {};
+  Object.assign(templateParams, metaData);
+  Object.assign(templateParams, { article: convert(articleString) });
+  return articlePageMaker(template, templateParams);
+};
+
+const loadArticleMeta = function(index, articlesMeta) {
+  return articlesMeta[index];
 };
 
 const templateAllArticles = function(articlesPath, templatePath, targetPath) {
@@ -38,5 +44,6 @@ module.exports = {
   loadArticle,
   processArticle,
   storeArticleHtmlFile,
-  templateAllArticles
+  templateAllArticles,
+  loadArticleMeta
 };
