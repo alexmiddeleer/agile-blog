@@ -105,4 +105,16 @@ describe("loadArticleMeta", () => {
     const result = loadArticleMeta(0, [expected]);
     expect(result).toEqual(expected);
   });
+
+  test("it doesnt break for missing articles", function() {
+    const expected = {};
+    const result = loadArticleMeta(0, []);
+    expect(result).toEqual(expected);
+  });
+
+  test("it allows undefined meta", function() {
+    const expected = {};
+    const result = loadArticleMeta(0);
+    expect(result).toEqual(expected);
+  });
 });

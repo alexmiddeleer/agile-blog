@@ -16,4 +16,10 @@ p {
 
 .sidebar {
   max-width: 200px;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.84);
+}
+
+.sidebar.left {
+  margin: 0 40px 40px 0;
 }

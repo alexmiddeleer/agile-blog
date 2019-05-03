@@ -7,7 +7,19 @@
   </head>
   <body>
     <h1>Agile Blog</h1>
-    <div class="left sidebar">{{{sidebar}}}</div>
+    <div class="left sidebar">
+      <p>
+        <a href="/">Home</a>
+      </p>
+      <p>
+        Posts
+      </p>
+      <ul>
+        {{#articleLinks}}
+        <li><a href="{{articleHref}}">{{articleTitle}}</a></li>
+        {{/articleLinks}}
+      </ul>
+    </div>
     <article>
       {{{article}}}
     </article>

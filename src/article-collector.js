@@ -24,15 +24,24 @@ const processArticle = function(articleString, template, metaData) {
 };
 
 const loadArticleMeta = function(index, articlesMeta) {
-  return articlesMeta[index];
+  if (articlesMeta && articlesMeta.length > index) {
+    return articlesMeta[index];
+  }
+  return {};
 };
 
-const templateAllArticles = function(articlesPath, templatePath, targetPath) {
+const templateAllArticles = function(
+  articlesPath,
+  templatePath,
+  targetPath,
+  articlesMeta
+) {
   const articles = collectArticles(articlesPath);
   const template = loadTemplate(templatePath);
   for (let index in articles) {
     const article = loadArticle(`${articlesPath}/${articles[index]}`);
-    const articleHtml = processArticle(article, template);
+    const articleMeta = loadArticleMeta(index, articlesMeta);
+    const articleHtml = processArticle(article, template, articleMeta);
     const articleName = articles[index].match(/^(.*).md$/i)[1];
     storeArticleHtmlFile(`${targetPath}/${articleName}.html`, articleHtml);
   }
