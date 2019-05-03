@@ -1,27 +1,27 @@
 const articleLinks = [
   {
-    articleHref: "/posts/1.html",
-    articleTitle: "Introduction"
+    href: "/posts/1.html",
+    title: "Introduction"
   },
   {
-    articleHref: "/posts/2.html",
-    articleTitle: "A title"
+    href: "/posts/2.html",
+    title: "A title"
   },
   {
-    articleHref: "/posts/3.html",
-    articleTitle: "Adding Posts"
+    href: "/posts/3.html",
+    title: "Adding Posts"
   },
   {
-    articleHref: "/posts/4.html",
-    articleTitle: "Links to Posts"
+    href: "/posts/4.html",
+    title: "Links to Posts"
   },
   {
-    articleHref: "/posts/5.html",
-    articleTitle: "MVP is Done"
+    href: "/posts/5.html",
+    title: "MVP is Done"
   },
   {
-    articleHref: "/posts/6.html",
-    articleTitle: "Refactor Spike 1"
+    href: "/posts/6.html",
+    title: "Refactor Spike 1"
   }
 ];
 
