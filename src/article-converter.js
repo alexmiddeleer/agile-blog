@@ -1,4 +1,4 @@
-const marked = require("marked");
+const marked = require('marked');
 
 function convert(articleString) {
   return marked(articleString).trim();

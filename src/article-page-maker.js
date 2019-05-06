@@ -1,2 +1,2 @@
-const { render } = require("mustache");
+const { render } = require('mustache');
 module.exports = render;

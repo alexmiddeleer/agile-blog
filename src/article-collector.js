@@ -1,6 +1,6 @@
-const { readdirSync, readFileSync, writeFileSync } = require("fs");
-const articlePageMaker = require("./article-page-maker.js");
-const convert = require("./article-converter.js");
+const { readdirSync, readFileSync, writeFileSync } = require('fs');
+const articlePageMaker = require('./article-page-maker.js');
+const convert = require('./article-converter.js');
 
 const collectArticles = function(dir) {
   return readdirSync(dir);
