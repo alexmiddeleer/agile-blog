@@ -6,6 +6,11 @@ describe('The Home Page', function() {
     cy.get('h1').should('contain', 'Agile Blog');
   });
 
+  it('should have a bio', function() {
+    cy.visit('/');
+    cy.get('.bio');
+  });
+
   it('has working links', function() {
     cy.visit('/');
     for (let i = 1; i <= posts.length; i++) {
